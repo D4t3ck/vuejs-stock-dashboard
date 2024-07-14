@@ -15,12 +15,15 @@ export default {
   },
   async created() {
     this.data = await stockService.getRevenue("$AAPL");
-    console.log("Loaded data", this.data);
+    // console.log("Loaded data", this.data);
   },
 };
 </script>
 
-<style>
+<style lang="scss">
+
+@import "./assets/scss/mixins.scss";
+
 :root {
   --backgroundColor: radial-gradient(
     71.11% 100% at 50% 0%,
