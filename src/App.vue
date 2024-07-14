@@ -1,17 +1,20 @@
 <template>
-  <BaseCard>
-    <h1>Überschrift</h1>
-    <p>Dies ist ein Beispieltext, der in die Card-Komponente eingefügt wird.</p>
-  </BaseCard>
+  <div>
+    <HeadlineCard />
+    <BaseCard />
+  </div>
 </template>
 
 <script>
 import BaseCard from "./components/BaseCard.vue";
+import HeadlineCard from "./components/HeadlineCard.vue";
 import { stockService } from "@/services/stockService";
+
 export default {
   name: "App",
   components: {
     BaseCard,
+    HeadlineCard,
   },
   async created() {
     this.data = await stockService.getRevenue("$AAPL");
@@ -21,7 +24,6 @@ export default {
 </script>
 
 <style lang="scss">
-
 @import "./assets/scss/mixins.scss";
 
 :root {
@@ -40,10 +42,16 @@ body {
   box-sizing: border-box;
   user-select: none;
 }
+
+#Basecard{
+  @include flexbox;
+}
+
 #app {
+  position: relative;
   width: 100vw;
-  min-height: 100vh;
-  padding: 100px;
+  height: 100vh;
+  padding: 155px 100px;
   background: var(--backgroundColor);
   box-sizing: border-box;
   color: whitesmoke;

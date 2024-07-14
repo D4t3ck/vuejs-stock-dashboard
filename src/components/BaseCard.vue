@@ -1,7 +1,7 @@
 <template>
   <div class="card">
-    <!-- Slot für beliebigen Inhalt -->
-    <slot></slot>
+    <h1>Überschrift</h1>
+    <p>Dies ist ein Beispieltext, der in die Card-Komponente eingefügt wird.</p>
   </div>
 </template>
 
@@ -12,7 +12,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 @import "../assets/scss/mixins.scss";
 
 .card {
@@ -20,5 +19,6 @@ export default {
   background: var(--cardColor);
   border-radius: 16px;
   padding: 24px 32px;
+  width: 1240px;
 }
 </style>
