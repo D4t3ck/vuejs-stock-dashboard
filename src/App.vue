@@ -1,12 +1,18 @@
 <template>
   <main>
-    <div class="first_card">
-      <HeadlineCard />
+    <HeadlineCard />
+
+    <section class="first_card">
       <BaseCard />
-    </div>
-    <div class="second_card">
+    </section>
+
+    <section class="second_card">
       <RevenueCard />
-    </div>
+    </section>
+
+    <section class="third_card">
+      <MiscDataCard />
+    </section>
   </main>
 </template>
 
@@ -14,6 +20,7 @@
 import BaseCard from "./components/BaseCard.vue";
 import HeadlineCard from "./components/HeadlineCard.vue";
 import RevenueCard from "./components/RevenueCard.vue";
+import MiscDataCard from "./components/MiscDataCard.vue";
 import { stockService } from "@/services/stockService";
 
 export default {
@@ -22,6 +29,7 @@ export default {
     BaseCard,
     HeadlineCard,
     RevenueCard,
+    MiscDataCard,
   },
   async created() {
     this.data = await stockService.getRevenue("$AAPL");
@@ -42,9 +50,20 @@ export default {
   --cardColor: #011f35;
 }
 
-body {
-  margin: 0;
+#app {
+  position: relative;
+  width: 100vw;
   max-width: 1920px;
+  height: 100vh;
+  padding: 155px 100px;
+  background: var(--backgroundColor);
+  box-sizing: border-box;
+  color: whitesmoke;
+}
+
+body {
+  @include flexbox;
+  margin: 0;
   font-family: system-ui, sans-serif;
   box-sizing: border-box;
   user-select: none;
@@ -53,7 +72,6 @@ body {
 main {
   @include flexbox($fd: column, $g: 2rem);
 
-
   .first_card {
     @include flexbox;
   }
@@ -61,19 +79,5 @@ main {
   .second_card {
     @include flexbox;
   }
-}
-
-#Basecard {
-  @include flexbox;
-}
-
-#app {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  padding: 155px 100px;
-  background: var(--backgroundColor);
-  box-sizing: border-box;
-  color: whitesmoke;
 }
 </style>
