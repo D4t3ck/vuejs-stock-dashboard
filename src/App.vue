@@ -1,13 +1,19 @@
 <template>
-  <div>
-    <HeadlineCard />
-    <BaseCard />
-  </div>
+  <main>
+    <div class="first_card">
+      <HeadlineCard />
+      <BaseCard />
+    </div>
+    <div class="second_card">
+      <RevenueCard />
+    </div>
+  </main>
 </template>
 
 <script>
 import BaseCard from "./components/BaseCard.vue";
 import HeadlineCard from "./components/HeadlineCard.vue";
+import RevenueCard from "./components/RevenueCard.vue";
 import { stockService } from "@/services/stockService";
 
 export default {
@@ -15,6 +21,7 @@ export default {
   components: {
     BaseCard,
     HeadlineCard,
+    RevenueCard,
   },
   async created() {
     this.data = await stockService.getRevenue("$AAPL");
@@ -43,7 +50,20 @@ body {
   user-select: none;
 }
 
-#Basecard{
+main {
+  @include flexbox($fd: column, $g: 2rem);
+
+
+  .first_card {
+    @include flexbox;
+  }
+
+  .second_card {
+    @include flexbox;
+  }
+}
+
+#Basecard {
   @include flexbox;
 }
 

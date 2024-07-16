@@ -1,7 +1,6 @@
 <template>
   <div class="card">
-    <h1>Überschrift</h1>
-    <p>Dies ist ein Beispieltext, der in die Card-Komponente eingefügt wird.</p>
+    
   </div>
 </template>
 
